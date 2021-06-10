@@ -1,0 +1,63 @@
+
+{% extends 'html/header.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<!-- Background image -->
+<style>
+body {
+  background-image: url('https://t3.ftcdn.net/jpg/03/55/60/70/360_F_355607062_zYMS8jaz4SfoykpWz5oViRVKL32IabTP.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+
+
+     
+
+<div id="login">
+        <h3 class="text-center text-white pt-5"></h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="POST">
+                            <div class="container">
+                                
+                                
+
+                            <h1 class="card-title text-center text-dark">Login</h1>
+                            {% csrf_token %}
+                            <div class="form-group">
+                               
+                                <input type="text" name="username" id="username" placeholder="Enter your Username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                               
+                                <input type="password" name="password" id="password" placeholder="Enter your Password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                
+                                <input  type="submit" name="submit" class="btn btn-info btn-md col-sm" value="submit">
+                            </div>
+                            <div class="row">
+                            <div class="col">
+                        <a href="{% url 'rg' %}" class="btn btn-primary ">Create  New User</a>
+                        </div>  
+                    <div class="col">
+            <a href="{% url 'rt' %}" class="btn btn-danger col-sm" >Forget Password ?</a>
+        </div></div>
+<br><br><br><br><br><br></div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+</body>
+
+ <br>
+ </div></div>
+
+{% endblock %}

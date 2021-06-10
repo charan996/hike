@@ -1,0 +1,60 @@
+{% extends 'html/header.html' %}
+{% block title %}Permissions{% endblock %}
+{% block content %}
+
+<style>
+body {
+  background-image: url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm21-pd-sasi-03.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=cec9b4798fd70605e2a95fa61259c5db');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+
+<!-- <div class="bg-image" 
+   style="background-image: url('https://img.freepik.com/free-vector/close-up-minimalist-honeycomb-background-design_23-2148386679.jpg?size=626&ext=jpg');
+   height: 200%">
+ -->
+  <div class = "container">
+  <div class = "card col-md-6 mx-auto mt-5 shadow-lg">
+    <div class="card-body">
+			<h3 class="text-center">User Permissions</h3>
+			<table class="table table-bordered">
+				<tr class="bg-secondary text-light">
+					<th>S.no</th>
+					<th>Username</th>
+					<th>Role</th>
+					<th>Permissions</th>
+				</tr>
+				{% for j in q %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td>{{j.username}}</td>
+					<td>
+						{% if j.is_staff == 1 %}
+						<span class=" p-1 badge badge-pills badge-info">Admin</span>
+						{% elif j.role == 3 %}
+						<span class=" p-1 badge badge-pills badge-info">Guest</span>
+						{% elif j.role == 2 %}
+						<span class="p-1 badge badge-pills badge-info">Customer</span>
+						{% else %}
+						<span class="p-1 badge badge-pills badge-info">Farmer</span>
+
+						{% endif %}
+
+				</td>
+					<td colspan="3">
+						<a href="{% url 'up' j.id %}
+						" class="btn btn-success">Update</a>
+						
+						
+					</td>
+				</tr>	
+				{% endfor %}
+						</table>
+				
+</div>
+</div>
+</div>
+</div>
+{% endblock %} 

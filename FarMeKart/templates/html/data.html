@@ -1,0 +1,21 @@
+{% extends 'html/header.html' %}
+{% block title %}CRUD Operations{% endblock %}
+{% block content %}
+<div class="container">
+	<div class="row">
+
+		<div class="card center col-md-4  mx-auto my-3 shadow lg h-25">
+			<h3 class="p-3 bg-primary text-center text-white mt-3 border rounded">Add Details</h3>
+			<form method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+				{{ a.as_p }}
+				<input type="submit" value="create" class="form-control my-2 col-sm btn btn-success">
+		</div>
+		
+				</td>
+			
+	
+</div>
+</div>
+</div>
+{% endblock %}

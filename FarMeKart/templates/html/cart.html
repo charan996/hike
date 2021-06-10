@@ -1,0 +1,117 @@
+{% extends 'html/header.html' %}
+{% block title %}Cart{% endblock %}
+{% block content %}
+{% load static %}
+<div class="container-fluid" style="margin-top: 25px;">
+	{% if user.role == 2 %}
+		<div class="row">
+			
+					
+		
+				
+		{% for k in data %}
+		<tr>
+			<div class="col col-md-3">
+				<div class="card ">
+					<h3 class="bg-warning text-center border rounded p-1">{{k.item_type}}</h3>
+					
+					
+					<img class="card-img-top" src="{{k.impf.url}}" alt="Card image" style="height:150px;width:100%">
+					<h3 class="bg-warning text-center border rounded p-1">{{k.item_name}}</h3>
+					<h6>Stock :<span>{% if k.is_stock == 0 %}<span class="bg-success text-light p-1 border rounded">Available</span>{% else %}<span class="bg-danger text-light border rounded p-1">Out of Stock</span>{% endif%}</span></h6>
+				
+
+                    
+					<div class="card-body"> 
+                    <h3><span class=" border rounded p-1">Farmer name : {{k.fname}}</span></h3>
+					
+					<div class="col mt-3">
+					<p style="text-align:center" class="text-light mt-2 bg-dark">Market Price : Rs.{{k.market_price}}</p>
+					
+					<div class="row mt-3">
+					<form method="POST" action="{% url 'ca' k.id %}">
+						{% csrf_token %}
+						<div class="col">
+					<button type="submit" class="btn btn-primary form-control col-sm">Add to cart</button>
+
+					
+					</div>
+				</form>
+
+<a href="#" class="btn btn-success text-light bg-info form-control col-sm">Rs.{{k.price}}/Kg</a>
+						
+				
+				</div>
+
+				
+					</div>
+				</div>
+			</div>
+		</div>
+	</tr>
+		{% endfor %}			
+		{% else %}
+		<body> 
+			<div class="card-body">
+				<style>
+					.carousel-inner img {
+						width: 100%;
+						height: 480px;
+					}
+				</style>
+				<div id="demo" class="carousel slide " data-ride="carousel">
+
+	  <!-- Indicators -->
+	  <ul class="carousel-indicators">
+	    <li data-target="#demo" data-slide-to="0" class="active"></li>
+	    <li data-target="#demo" data-slide-to="1"></li>
+	    <li data-target="#demo" data-slide-to="2"></li>
+	  </ul>
+	  <div class="carousel-inner">
+	  	<div class="carousel-item active">
+	  		<img src="{% static 'images/start.jpg' %}" width="100%" height="50px">
+	  	</div>
+	  	<div class="carousel-item">
+	  		<img src="{% static 'images/bg_1.jpg' %}" width="50%" height="50px">
+	  	</div>
+	  	<div class="carousel-item">
+	  		<img src="{% static 'images/farm2.jpg' %}"  width="100%" height="50px">
+	  	</div>
+	  </div>
+	  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+	  	<span class="carousel-control-prev-icon"></span>
+	  </a>
+	  <a class="carousel-control-next" href="#demo" data-slide="next">
+	  	<span class="carousel-control-next-icon"></span>
+	  </a>
+	</div>
+</body>
+</html>
+</div>
+</div>
+<div class="row">
+	
+	{% for k in data %}
+	<tr>
+		<div class="col col-md-3 mt-2">
+			<div class="card ">
+				<h3 class="bg-warning text-center border rounded p-1">{{k.item_type}}</h3>
+				<img class="card-img-top" src="{{k.impf.url}}" alt="Card image" style="height:150px;width:100%">
+				<h3 class="bg-warning text-center border rounded p-1">{{k.item_name}}</h3>
+			 	<h3>Farmer name :{{k.fname}}</h3>
+			 	
+				<div class="card-body"> 
+				<a href="#" class="btn btn-success text-light  bg-dark col-sm"> Market Price Rs.{{k.market_price}}</a>
+				<div class="row mt-2">
+					
+					<a href="#" class="btn btn-success text-light  bg-primary col-sm">  Price Rs.{{k.price}}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</tr>
+{% endfor %}
+</div>
+{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'html/header.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<style>
+body {
+  background-image: url('https://t3.ftcdn.net/jpg/03/55/60/70/360_F_355607062_zYMS8jaz4SfoykpWz5oViRVKL32IabTP.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+
+<div class="container">
+	<div class="card col-md-6 mx-auto mt-4 shadow-lg">
+		<h4 class="p-3 bg-dark text-center text-white mt-3 border rounded">LOGOUT</h4>
+		<div class="card-body">
+			<h2 class="text-center text-success">Successfully Logged Out</h2>
+			<h3>You need to Login again?<a href="{% url 'lg' %}" class="form-contol btn btn-info my-2">Login</a></h3>
+		</div>
+	</div>
+</div>		<br><br><br><br><br>
+		<br><br><br><br><br>
+		<br><br><br><br><br>
+		<br><br><br><br><br>
+
+{% endblock %}
